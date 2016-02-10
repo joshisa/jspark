@@ -22,3 +22,7 @@ def oldthings():
 
 def bigthings():
     print "Donald Trump's ego"
+
+
+def onemorething():
+    print "+1"
