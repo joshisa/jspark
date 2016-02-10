@@ -18,3 +18,7 @@ def newthings():
 
 def oldthings():
     print "Bah Humbug!"
+
+
+def bigthings():
+    print "Donald Trump's ego"
