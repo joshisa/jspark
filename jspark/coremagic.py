@@ -30,3 +30,7 @@ def onemorething():
 
 def onelessthing():
     print "-1"
+
+
+def uselessthings():
+    print "Waiting on iPython Notebook Spark processes to complete"
