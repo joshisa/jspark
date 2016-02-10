@@ -10,3 +10,7 @@ Enjoy!
 
 def smallthings():
     print "Great things are done by a series of small things brought together."
+
+
+def newthings():
+    print "Something new and something old!"
