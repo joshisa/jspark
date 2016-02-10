@@ -26,3 +26,7 @@ def bigthings():
 
 def onemorething():
     print "+1"
+
+
+def onelessthing():
+    print "-1"
