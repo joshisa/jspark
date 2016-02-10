@@ -13,4 +13,8 @@ def smallthings():
 
 
 def newthings():
-    print "Something new and something old!"
+    print "Something new and something old and something different!"
+
+
+def oldthings():
+    print "Bah Humbug!"
