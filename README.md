@@ -90,3 +90,7 @@ This notebook is used to quickly install helper functions derived from the exper
     # Empty or 1 == Smart.  2 == Full  0 == Disabled (ref: https://ipython.org/ipython-doc/3/interactive/magics.html#magic-autocall)
     %autocall 2
 
+### Installing commonly used python module dependencies (Twilio, Haversine, ...)
+
+
+    coremagic.setup()
