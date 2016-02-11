@@ -61,24 +61,23 @@ def bluemix():
 
 def reference():
     print "http://docs.openstack.org/developer/swift/api/large_objects.html\n\
-           http://spark.apache.org/docs/latest/storage-openstack-swift.html\n\
-           https:https://cdsx.ng.bluemix.net/data/jupyter2/d64cf4dc-7ce9-411c-9c9a-3bd0f431a9ad/notebooks/8b4891ab-3cfe-4b6b-872f-8d64c9fd16e0#//spark.apache.org/docs/1.1.1/api/python/pyspark.rdd.RDD-class.html\n\
-           https://gist.github.com/dapangmao/5c3798d72b650a70c4bb\n\
-           http://www.supergloo.com/fieldnotes/apache-spark-transformations-python-examples/\n\
-           https://ogirardot.wordpress.com/2015/05/29/rdds-are-the-new-bytecode-of-apache-spark/\n\
-           https://www.dataquest.io/blog/spark-intro/\n\
-           https://lab.getbase.com/pandarize-spark-dataframes/\n\
-           https://www.safaribooksonline.com/library/view/building-spark-applications/9780134393490/part27.html\n\
-           http://stackoverflow.com/questions/28981359/why-do-we-need-to-call-cache-or-persist-on-a-rdd#answer-28984561\n\
-           https://forums.databricks.com/questions/271/should-i-always-cache-my-rdds.html\n\
-           http://www.mccarroll.net/blog/pyspark2/\n\
-           http://stackoverflow.com/questions/33092723/performing-lookup-translation-in-a-spark-rdd-or-data-frame-using-another-rdd-df\n\
-           https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/Home-3.x\n\
-           http://www.movable-type.co.uk/scripts/latlong.html\n\
-           http://hortonworks.com/blog/magellan-geospatial-analytics-in-spark/\n\
-           https://github.com/dima42/uber-gps-analysis/\n\
-           https://github.com/ipython/ipython/wiki/Cookbook:-Connecting-to-a-"\
-           "remote-kernel-via-ssh"
+    http://spark.apache.org/docs/latest/storage-openstack-swift.html\n\
+    https:https://cdsx.ng.bluemix.net/data/jupyter2/d64cf4dc-7ce9-411c-9c9a-3bd0f431a9ad/notebooks/8b4891ab-3cfe-4b6b-872f-8d64c9fd16e0#//spark.apache.org/docs/1.1.1/api/python/pyspark.rdd.RDD-class.html\n\
+    https://gist.github.com/dapangmao/5c3798d72b650a70c4bb\n\
+    http://www.supergloo.com/fieldnotes/apache-spark-transformations-python-examples/\n\
+    https://ogirardot.wordpress.com/2015/05/29/rdds-are-the-new-bytecode-of-apache-spark/\n\
+    https://www.dataquest.io/blog/spark-intro/\n\
+    https://lab.getbase.com/pandarize-spark-dataframes/\n\
+    https://www.safaribooksonline.com/library/view/building-spark-applications/9780134393490/part27.html\n\
+    http://stackoverflow.com/questions/28981359/why-do-we-need-to-call-cache-or-persist-on-a-rdd#answer-28984561\n\
+    https://forums.databricks.com/questions/271/should-i-always-cache-my-rdds.html\n\
+    http://www.mccarroll.net/blog/pyspark2/\n\
+    http://stackoverflow.com/questions/33092723/performing-lookup-translation-in-a-spark-rdd-or-data-frame-using-another-rdd-df\n\
+    https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/Home-3.x\n\
+    http://www.movable-type.co.uk/scripts/latlong.html\n\
+    http://hortonworks.com/blog/magellan-geospatial-analytics-in-spark/\n\
+    https://github.com/dima42/uber-gps-analysis/\n\
+    https://github.com/ipython/ipython/wiki/Cookbook:-Connecting-to-a-remote-kernel-via-ssh"
 
 
 def install(package):
