@@ -126,3 +126,22 @@ def uni_to_int(uni):
     except:
         pass
     return num
+
+
+def setup():
+    print "Installing twilio pypi package ..."
+    install("twilio")
+    print "Done"
+    print "Installing haversine pypi package ..."
+    install("haversine")
+    print "Done"
+    print "PROTIP: Consider setting up a Twilio.com Account to facilitate SMS Notifications"
+    print ""
+    print "To assign your Twilio credentials, populate and execute the following within a cell:"
+    print ""
+    print "jspark.coremagic.credentials['twilio_account_sid']='<your_twilio.com_account_sid>'"
+    print "jspark.coremagic.credentials['twilio_auth_token']='<your_twilio.com_auth_token>'"
+    print "jspark.coremagic.credentials['twilio_to_number']='<your_verified_phone_number (+1aaabbbcccc)>'"
+    print "jspark.coremagic.credentials['twilio_from_number']='<your_twilio_phone_number (+1aaabbbcccc)>'"
+
+
