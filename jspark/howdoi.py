@@ -12,17 +12,20 @@ Enjoy!
 """
 
 
-def sample_swift_url():
-    print "filename = 'swift://<bluemix_objstor_containername>.spark/<filename or manifest>'"
+def define_filename_swift_url():
+    print "# Notice the use of the default account name 'spark'."
+    print "filename = 'swift://<bluemix_objstor_containername>.spark/<filename_or_manifest>'"
 
 
-def sample_textFile():
-    print "my_rdd = sc.textFile(<filename>)"
+def read_from_bluemix_spark_service_object_storage():
+    define_filename_swift_url()
+    print "my_rdd = sc.textFile(filename)"
 
 
-def sample_persist():
+def persist_my_rdd():
     print "my_rdd = sc.textFile(<filename>).persist(pyspark.storagelevel.StorageLevel.MEMORY_AND_DISK)"
 
 
-def sample_cleanup():
-    print "my_rdd = sc.textFile(<filename>).flatMap(lambda line: cleanup(line)).persist(pyspark.storagelevel.StorageLevel.MEMORY_AND_DISK)"
+def cleanup_an_rdd_with_errors():
+    define_filename_swift_url()
+    print "my_rdd = sc.textFile(filename).flatMap(lambda line: cleanup(line)).persist(pyspark.storagelevel.StorageLevel.MEMORY_AND_DISK)"
