@@ -26,11 +26,11 @@ This notebook is used to quickly install helper functions derived from the exper
     # Pull in all functions present in coremagic
     from jspark import coremagic
     from jspark import objstormagic
-    from jspark import teachmagic
+    from jspark import howdoi
     from jspark import dfmagic
     from jspark.coremagic import *
     from jspark.objstormagic import *
-    from jspark.teachmagic import *
+    from jspark.howdoi import *
     from jspark.dfmagic import *
 
 ### Enabling automatic reload of helper modules
