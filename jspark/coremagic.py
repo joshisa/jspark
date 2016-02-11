@@ -115,7 +115,8 @@ def notify(mode=DEFAULT_MODE, message=DEFAULT_MESSAGE):
             return "IPython Cell Complete SMS sent to %s" % \
                    credentials['twilio_to_number']
         else:
-            return MISSING_TWILIO
+            print MISSING_TWILIO
+            return ""
     elif mode == "mixed":
         if (len(credentials["twilio_account_sid"]) > 0) and (len(credentials["twilio_auth_token"]) > 0) and (len(credentials["twilio_to_number"]) > 0) and (len(credentials["twilio_from_number"]) > 0):
             if (len(message) > 0):
@@ -124,7 +125,8 @@ def notify(mode=DEFAULT_MODE, message=DEFAULT_MESSAGE):
                 sms()
             return Audio(url=notify_sound, autoplay=True)
         else:
-            return MISSING_TWILIO
+            print MISSING_TWILIO
+            return Audio(url=notify_sound, autoplay=True)
     elif mode == "audio":
         return Audio(url=notify_sound, autoplay=True)
     else:
