@@ -4,10 +4,18 @@
 Provides Helper Functions while working with Bluemix Spark Notebooks.
 
 This module provides helper functions based on IBM jStart experiences.
+More specifically, these functions are oriented towards basic
+operations and interaction typically encountered in notebook workloads
 Enjoy!
 """
 
 from IPython.display import Audio
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import SQLContext
+from pyspark.sql import functions as F
+from pyspark.sql.types import StructType, StructField, ArrayType, DoubleType, StringType, FloatType, IntegerType
+from pyspark.storagelevel import StorageLevel
+from pyspark.accumulators import AccumulatorParam
 import os
 import twilio
 import twilio.rest
@@ -16,7 +24,8 @@ import twilio.rest
 DEFAULT_MESSAGE = "Vincent Van Gogh once said, 'Great things are done by a "\
                   "series of small things brought together.' Your IPython "\
                   "cell has completed."
-
+DEFAULT_MODE = "audio"
+notify_sound = "https://ibm.box.com/shared/static/r50psi487u4x4jfo7ejlhqnaozska5bp.ogg"
 credentials = {
     "auth_url": "https://identity.open.softlayer.com",
     "project": "",
@@ -72,8 +81,8 @@ def reference():
            "remote-kernel-via-ssh"
 
 
-def install_twilio():
-    os.system("pip install --user twilio > /dev/null 2>&1")
+def install(package):
+    os.system("pip install --user " + package + " > /dev/null 2>&1")
 
 
 def sms(smsbody=DEFAULT_MESSAGE):
@@ -88,3 +97,33 @@ def sms(smsbody=DEFAULT_MESSAGE):
         return "success"
     except twilio.TwilioRestException as e:
         return e
+
+
+# Let's setup alerting capabilities to make long-running cells tolerable
+def notify(mode=DEFAULT_MODE, message=DEFAULT_MESSAGE):
+    if mode == "sms":
+        if (len(message) > 0):
+            sms(message)
+        else:
+            sms()
+        return "IPython Cell Complete SMS sent to %s" % \
+               credentials['twilio_to_number']
+    elif mode == "mixed":
+        if (len(message) > 0):
+            sms(message)
+        else:
+            sms()
+        return Audio(url=notify_sound, autoplay=True)
+    elif mode == "audio":
+        return Audio(url=notify_sound, autoplay=True)
+    else:
+        return Audio(url=notify_sound, autoplay=True)
+
+
+def uni_to_int(uni):
+    num = None
+    try:
+        num = int(uni)
+    except:
+        pass
+    return num
