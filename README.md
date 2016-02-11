@@ -20,11 +20,6 @@ This notebook is used to quickly install helper functions derived from the exper
     !git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1
     print "Done"
 
-    Sweet, someone on your team has already installed the jspark module.
-    Checking remote jspark repo for updates ...
-    Done
-
-
 ### Pulling in all of module references
 
 
@@ -53,20 +48,9 @@ This notebook is used to quickly install helper functions derived from the exper
     %aimport jspark.dfmagic
     %aimport
 
-    The autoreload extension is already loaded. To reload it, use:
-      %reload_ext autoreload
-    Modules to reload:
-    jspark.coremagic jspark.dfmagic jspark.objstormagic jspark.teachmagic
-    
-    Modules to skip:
-    
-
-
 ### Removing parenthesis ( ) requirement for function calls
 
 
     # Empty or 1 == Smart.  2 == Full  0 == Disabled (ref: https://ipython.org/ipython-doc/3/interactive/magics.html#magic-autocall)
     %autocall 2
-
-    Automatic calling is: Full
 
