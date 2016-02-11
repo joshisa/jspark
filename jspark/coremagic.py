@@ -7,13 +7,47 @@ This module provides helper functions based on IBM jStart experiences.
 Enjoy!
 """
 
+from IPython.display import Audio
+import os
+import twilio
+import twilio.rest
+
+
+DEFAULT_MESSAGE = "Vincent Van Gogh once said, 'Great things are done by a "\
+                  "series of small things brought together.' Your IPython "\
+                  "cell has completed."
+
+credentials = {
+    "auth_url": "https://identity.open.softlayer.com",
+    "project": "",
+    "projectId": "",
+    "region": "dallas",
+    "userId": "",
+    "username": "",
+    "password": "",
+    "domainId": "",
+    "domainName": "",
+    "name": "",
+    "container": "",
+    "twilio_account_sid": "",
+    "twilio_auth_token": "",
+    "twilio_to_number": "",
+    "twilio_from_number": ""
+}
+
 
 def jstart():
-    print "jStart's unique mission within IBM is to leverage emerging technologies to address real and current business needs of our clients.  To check out all of our innovative work and thoughts, please check us out @ http://www-01.ibm.com/software/ebusiness/jstart/about/ and http://blog.ibmjstart.net"
+    print "jStart's unique mission within IBM is to leverage emerging technologies " \
+          "to address real and current business needs of our clients.  To check " \
+          "out all of our innovative work and thoughts, please check us out @ " \
+          "http://www-01.ibm.com/software/ebusiness/jstart/about/ and " \
+          "http://blog.ibmjstart.net"
 
 
 def bluemix():
-    print "Vincent Van Gogh once said, 'Great things are done by a series of small things brought together.'  We hope you enjoy your Bluemix Spark Analytics experience."
+    print "Vincent Van Gogh once said, 'Great things are done by a series of " \
+          "small things brought together.'  We hope you enjoy your Bluemix " \
+          "Spark Analytics experience."
 
 
 def reference():
@@ -34,10 +68,23 @@ def reference():
            http://www.movable-type.co.uk/scripts/latlong.html\n\
            http://hortonworks.com/blog/magellan-geospatial-analytics-in-spark/\n\
            https://github.com/dima42/uber-gps-analysis/\n\
-           https://github.com/ipython/ipython/wiki/Cookbook:-Connecting-to-a-remote-kernel-via-ssh"
+           https://github.com/ipython/ipython/wiki/Cookbook:-Connecting-to-a-"\
+           "remote-kernel-via-ssh"
 
 
-def install_autotime():
-    # Installing the very useful iPython extension autotime (src: https://github.com/cpcloud/ipython-autotime)
-    %install_ext https://raw.github.com/cpcloud/ipython-autotime/master/autotime.py
-    %load_ext autotime
+def install_twilio():
+    os.system("pip install --user twilio > /dev/null 2>&1")
+
+
+def sms(smsbody=DEFAULT_MESSAGE):
+    try:
+        client = twilio.rest.TwilioRestClient(credentials["twilio_account_sid"],
+                                              credentials["twilio_auth_token"])
+        client.messages.create(
+            body=smsbody,
+            to=credentials["twilio_to_number"],
+            from_=credentials["twilio_from_number"]
+        )
+        return "success"
+    except twilio.TwilioRestException as e:
+        return e
