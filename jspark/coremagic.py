@@ -87,7 +87,7 @@ def reference():
 
 
 def install(package):
-    os.system("pip install --user " + package + " > /dev/null 2>&1")
+    os.system("pip install --user -U " + package + " > /dev/null 2>&1")
 
 
 def sms(smsbody=DEFAULT_MESSAGE):
@@ -149,6 +149,9 @@ def setup():
     print "Installing haversine pypi package ..."
     install("haversine")
     print "Done"
+    print "Installing jupyter dashboards ..."
+    setup_dashboards()
+    print "Done"
     print "PROTIP: Consider setting up a Twilio.com Account to facilitate SMS Notifications"
     print ""
     print "To assign your Twilio credentials, populate and execute the following within a cell:"
@@ -159,3 +162,14 @@ def setup():
     print "jspark.coremagic.credentials['twilio_from_number']='<your_twilio_phone_number (+1aaabbbcccc)>'"
 
 
+def setup_dashboards():
+    # installing dashboards
+    install("jupyter_dashboards")
+    import jupyter_dashboards
+    path = jupyter_dashboards.__path__[0]
+    os.system("ipython install-nbextension " + path + "/nbextension --user --overwrite --destination=jupyter_dashboards" + " > /dev/null 2>&1")
+    from IPython.html.services.config import ConfigManager
+    from IPython import get_ipython
+    ip = get_ipython()
+    cm = ConfigManager(profile_dir=ip.profile_dir.location)
+    cm.update('notebook', {"load_extensions": {'jupyter_dashboards/notebook/main': True}})
