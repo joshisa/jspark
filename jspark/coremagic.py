@@ -25,6 +25,12 @@ DEFAULT_MESSAGE = "Vincent Van Gogh once said, 'Great things are done by a "\
                   "series of small things brought together.' Your IPython "\
                   "cell has completed."
 DEFAULT_MODE = "audio"
+MISSING_TWILIO = "One or more of your twilio credential entries is empty!\n" \
+                 "Please populate the properties for:\n" \
+                 "jspark.coremagic.credentials['twilio_account_sid']='<your_twilio.com_account_sid>'\n" \
+                 "jspark.coremagic.credentials['twilio_auth_token']='<your_twilio.com_auth_token>'\n" \
+                 "jspark.coremagic.credentials['twilio_to_number']='<your_verified_phone_number (+1aaabbbcccc)>'\n" \
+                 "jspark.coremagic.credentials['twilio_from_number']='<your_twilio_phone_number (+1aaabbbcccc)>'"
 notify_sound = "https://ibm.box.com/shared/static/r50psi487u4x4jfo7ejlhqnaozska5bp.ogg"
 credentials = {
     "auth_url": "https://identity.open.softlayer.com",
@@ -101,18 +107,24 @@ def sms(smsbody=DEFAULT_MESSAGE):
 # Let's setup alerting capabilities to make long-running cells tolerable
 def notify(mode=DEFAULT_MODE, message=DEFAULT_MESSAGE):
     if mode == "sms":
-        if (len(message) > 0):
-            sms(message)
+        if (len(credentials["twilio_account_sid"]) > 0) and (len(credentials["twilio_auth_token"]) > 0) and (len(credentials["twilio_to_number"]) > 0) and (len(credentials["twilio_from_number"]) > 0):
+            if (len(message) > 0):
+                sms(message)
+            else:
+                sms()
+            return "IPython Cell Complete SMS sent to %s" % \
+                   credentials['twilio_to_number']
         else:
-            sms()
-        return "IPython Cell Complete SMS sent to %s" % \
-               credentials['twilio_to_number']
+            return MISSING_TWILIO
     elif mode == "mixed":
-        if (len(message) > 0):
-            sms(message)
+        if (len(credentials["twilio_account_sid"]) > 0) and (len(credentials["twilio_auth_token"]) > 0) and (len(credentials["twilio_to_number"]) > 0) and (len(credentials["twilio_from_number"]) > 0):
+            if (len(message) > 0):
+                sms(message)
+            else:
+                sms()
+            return Audio(url=notify_sound, autoplay=True)
         else:
-            sms()
-        return Audio(url=notify_sound, autoplay=True)
+            return MISSING_TWILIO
     elif mode == "audio":
         return Audio(url=notify_sound, autoplay=True)
     else:
