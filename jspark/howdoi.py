@@ -31,6 +31,23 @@ def cleanup_an_rdd_with_errors():
     print "my_rdd = sc.textFile(filename).flatMap(lambda line: cleanup(line)).persist(pyspark.storagelevel.StorageLevel.MEMORY_AND_DISK)"
 
 
+def install_autotime_extension():
+    print "This extension allows you to automatically time every cell"
+    print "After a cell is executed, you will see a timing value output"
+    print "This is useful in identifying slow running cells"
+    print ""
+    print "No. of Cells to execute: 1"
+    print "--------------------------"
+    print ""
+    print "Cell 1 - Paste text below"
+    print "# Installing the very useful iPython extension autotime"
+    print "%install_ext https://raw.github.com/cpcloud/ipython-autotime/master/autotime.py"
+    print "%load_ext autotime"
+    print ""
+    print "Test: verify the presence of a time value output generation following cell execution"
+    print "See https://github.com/cpcloud/ipython-autotime for more details"
+
+
 def install_codefolding_extension():
     print "This extension adds codefolding functionality from CodeMirror to a codecell."
     print "After clicking on the gutter or typing Alt+F, the code gets folded."
