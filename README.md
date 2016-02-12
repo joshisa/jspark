@@ -5,7 +5,8 @@ This notebook is used to quickly install helper functions derived from the exper
 ### TLDR; Copy and Paste Cell
 
 
-    if (os.system("[! -f /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py ]")):
+    !pip install --user pep8
+    if (os.system("test -r /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py") == 0):
         print "Sweet, someone on your team has already installed the jspark module."
     else:
         # Run by somebody in the group to update the common package
@@ -17,14 +18,14 @@ This notebook is used to quickly install helper functions derived from the exper
     !git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1
     print "Done"
     # Pull in all functions present in coremagic
-    from jspark import coremagic
-    from jspark import objstormagic
-    from jspark import howdoi
-    from jspark import dfmagic
     from jspark.coremagic import *
     from jspark.objstormagic import *
     from jspark.howdoi import *
     from jspark.dfmagic import *
+    from jspark import coremagic
+    from jspark import objstormagic
+    from jspark import howdoi
+    from jspark import dfmagic
     # Run by Everyone once in their respective notebook
     # This loads the autoreload extension into your notebook
     %load_ext autoreload
@@ -43,8 +44,9 @@ This notebook is used to quickly install helper functions derived from the exper
 ### Installing the shared module
 
 
+    !pip install --user pep8
     import os.path
-    if (os.system("[! -f /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py ]")):
+    if (os.system("test -r /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py") == 0):
         print "Sweet, someone on your team has already installed the jspark module."
     else:
         # Run by somebody in the group to update the common package
