@@ -2,6 +2,13 @@
 # jspark module for IBM Bluemix Spark Notebooks
 
 This notebook is used to quickly install helper functions derived from the experiences of the IBM jStart team
+
+### One-Line TLDR;
+
+
+    %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark.py
+    
+
 ### TLDR; Copy and Paste Cell
 
 
