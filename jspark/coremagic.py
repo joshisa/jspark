@@ -89,6 +89,8 @@ def install(package):
 
 
 def sms(smsbody=DEFAULT_MESSAGE):
+    import twilio
+    import twilio.rest
     try:
         client = twilio.rest.TwilioRestClient(credentials["twilio_account_sid"],
                                               credentials["twilio_auth_token"])
