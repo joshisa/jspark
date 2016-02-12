@@ -186,3 +186,7 @@ def pull():
     os.system("git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1")
     os.system("import jspark")
 
+
+def frustrated():
+    from IPython.core.display import HTML
+    HTML('<iframe src="//giphy.com/embed/VfqqcORnSh7Mc?html5=true" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>')
