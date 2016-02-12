@@ -189,4 +189,4 @@ def pull():
 
 def frustrated():
     from IPython.core.display import HTML
-    HTML('<iframe src="//giphy.com/embed/VfqqcORnSh7Mc?html5=true" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>')
+    return HTML('<iframe src="//giphy.com/embed/VfqqcORnSh7Mc?html5=true" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>')
