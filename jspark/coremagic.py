@@ -163,6 +163,8 @@ def setup():
     print "jspark.coremagic.credentials['twilio_auth_token']='<your_twilio.com_auth_token>'"
     print "jspark.coremagic.credentials['twilio_to_number']='<your_verified_phone_number (+1aaabbbcccc)>'"
     print "jspark.coremagic.credentials['twilio_from_number']='<your_twilio_phone_number (+1aaabbbcccc)>'"
+    print ""
+    print "Please refresh your IPython Notebook browser tab in order to see the jupyter dashboard controls within the toolbar"
 
 
 def setup_dashboards():
