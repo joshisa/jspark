@@ -184,4 +184,5 @@ def setup_dashboards():
 
 def pull():
     os.system("git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1")
+    os.system("import jspark")
 

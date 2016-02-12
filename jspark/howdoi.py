@@ -75,3 +75,17 @@ def install_codefolding_extension():
     print ""
     print "Test:  Both Cell 1 and Cell 3 should now show a clickable triangle next to the cell's first line which is a comment"
     print "See https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/Codefolding for more details."
+
+
+def declare_dataframe_schema():
+    print "# Establishing sqlContext and schema for dataframe creation "
+    print "sqlContext = SQLContext(sc)"
+    print "schema = StructType(["
+    print "     StructField( header_list[0], ArrayType(ArrayType(DoubleType())), False),"
+    print "     StructField( header_list[1], DoubleType(), False),"
+    print "     StructField( header_list[2], StringType(), False),"
+    print "     StructField( header_list[3], StringType(), False),"
+    print "     StructField( header_list[4], StringType(), False)"
+    print "])"
+    print ""
+    print "df = sqlContext.createDataFrame(my_rdd, schema).persist(pyspark.storagelevel.StorageLevel.MEMORY_AND_DISK)"
