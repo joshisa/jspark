@@ -17,8 +17,6 @@ from pyspark.sql.types import StructType, StructField, ArrayType, DoubleType, St
 from pyspark.storagelevel import StorageLevel
 from pyspark.accumulators import AccumulatorParam
 import os
-import twilio
-import twilio.rest
 
 
 DEFAULT_MESSAGE = "Vincent Van Gogh once said, 'Great things are done by a "\
@@ -145,6 +143,8 @@ def uni_to_int(uni):
 def setup():
     print "Installing twilio pypi package ..."
     install("twilio")
+    import twilio
+    import twilio.rest
     print "Done"
     print "Installing haversine pypi package ..."
     install("haversine")
