@@ -152,7 +152,10 @@ def setup():
     print "Installing jupyter dashboards ..."
     setup_dashboards()
     print "Done"
-    print "PROTIP: Consider setting up a Twilio.com Account to facilitate SMS Notifications"
+    print ""
+    print "======================================================================================"
+    print "   PROTIP: Consider setting up a Twilio.com Account to facilitate SMS Notifications"
+    print "======================================================================================"
     print ""
     print "To assign your Twilio credentials, populate and execute the following within a cell:"
     print ""
