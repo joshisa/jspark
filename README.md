@@ -5,7 +5,7 @@ This notebook is used to quickly install helper functions derived from the exper
 ### TLDR; Copy and Paste Cell
 
 
-    !pip install --user pep8
+    !pip install --user nothing
     if (os.system("test -r /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py") == 0):
         print "Sweet, someone on your team has already installed the jspark module."
     else:
@@ -44,7 +44,7 @@ This notebook is used to quickly install helper functions derived from the exper
 ### Installing the shared module
 
 
-    !pip install --user pep8
+    !pip install --user nothing
     import os.path
     if (os.system("test -r /gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark/coremagic.py") == 0):
         print "Sweet, someone on your team has already installed the jspark module."
