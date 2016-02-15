@@ -3,10 +3,16 @@
 
 This notebook is used to quickly install helper functions derived from the experiences of the IBM jStart team
 
-### One-Line TLDR;
+### One-Line Install
 
 
     %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark.py
+    
+
+### One-Line Update
+
+
+    %load https://raw.githubusercontent.com/joshisa/jspark/master/updatejspark.py
     
 
 ### TLDR; Copy and Paste Cell
