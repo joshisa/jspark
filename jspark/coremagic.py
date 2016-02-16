@@ -154,6 +154,9 @@ def setup():
     print "Installing jupyter dashboards ..."
     setup_dashboards()
     print "Done"
+    print "Installing jupyter declarative widgets ..."
+    setup_declarativewidgets()
+    print "Done"
     print ""
     print "======================================================================================"
     print "   PROTIP: Consider setting up a Twilio.com Account to facilitate SMS Notifications"
@@ -181,6 +184,11 @@ def setup_dashboards():
     cm = ConfigManager(profile_dir=ip.profile_dir.location)
     cm.update('notebook', {"load_extensions": {'jupyter_dashboards/notebook/main': True}})
 
+
+def setup_declarativewidgets():
+    # installing jupyter declarativewidgets per this gist: https://gist.github.com/lbustelo/4ef18d147c8e225ffe65
+    install("jupyter_declarativewidgets==0.1.3")
+    
 
 def pull():
     os.system("git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1")
