@@ -191,7 +191,9 @@ def setup_declarativewidgets():
     
 
 def pull():
+    import time
     os.system("git --git-dir=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages/jspark.git --work-tree=/gpfs/global_fs01/sym_shared/YPProdSpark/user/$USER/.local/lib/python2.7/site-packages pull origin master > /dev/null 2>&1")
+    time.sleep(2)
     os.system("import jspark")
 
 
