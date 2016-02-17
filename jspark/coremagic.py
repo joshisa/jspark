@@ -16,6 +16,8 @@ from pyspark.sql import functions as F
 from pyspark.sql.types import StructType, StructField, ArrayType, DoubleType, StringType, FloatType, IntegerType
 from pyspark.storagelevel import StorageLevel
 from pyspark.accumulators import AccumulatorParam
+from IPython.html.services.config import ConfigManager
+from IPython import get_ipython
 import os
 
 
@@ -178,8 +180,6 @@ def setup_dashboards():
     import jupyter_dashboards
     path = jupyter_dashboards.__path__[0]
     os.system("ipython install-nbextension " + path + "/nbextension --user --overwrite --destination=jupyter_dashboards" + " > /dev/null 2>&1")
-    from IPython.html.services.config import ConfigManager
-    from IPython import get_ipython
     ip = get_ipython()
     cm = ConfigManager(profile_dir=ip.profile_dir.location)
     cm.update('notebook', {"load_extensions": {'jupyter_dashboards/notebook/main': True}})
@@ -188,6 +188,9 @@ def setup_dashboards():
 def setup_declarativewidgets():
     # installing jupyter declarativewidgets per this gist: https://gist.github.com/lbustelo/4ef18d147c8e225ffe65
     install("jupyter_declarativewidgets==0.1.3")
+    ip = get_ipython()
+    cm = ConfigManager(profile_dir=ip.profile_dir.location)
+    cm.update('notebook', {"load_extensions": {'urth_widgets/js/main': True}})
     
 
 def pull():
