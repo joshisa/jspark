@@ -1,4 +1,20 @@
-# %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
+# Purpose:  Installation of IPFS (InterPlanetary File System) within Jupyter
+#           IPFS is a peer-to-peer distributed file system that seeks to 
+#           connect all computing devices with the same system of files.
+#           In some ways, IPFS is similar to the World Wide Web, but IPFS 
+#           could be seen as a single BitTorrent swarm, exchanging objects 
+#           within one Git repository. IPFS has no single point of failure,
+#           and nodes do not need to trust each other.
+#           The filesystem can be accessed in a variety of ways, including 
+#           via FUSE and over HTTP. A local file can be added to the IPFS 
+#           filesystem, making it available to the world. Files are identified 
+#           by their hashes, so it's caching-friendly. They are distributed 
+#           using a BitTorrent-based protocol. (source: Wikipedia)
+# Status:  Alpha (Experimental)
+# Use Case Possibilities:  
+#   1. Easier sharing of data analysis result sets
+#   2. Easier access to popular open data sets via a permanent url
+#   3. Easier transfer of assets between notebook servers on different infra
 # Author:  Sanjay Joshi  joshisa (at) us(dot)ibm(dot)com
 # License: Apache 2.0
 # Organization:  IBM jStart (http://ibm.com/jstart)
