@@ -1,3 +1,4 @@
+# %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
 # Author:  Sanjay Joshi  joshisa (at) us(dot)ibm(dot)com
 # License: Apache 2.0
 # Organization:  IBM jStart (http://ibm.com/jstart)
@@ -89,13 +90,16 @@ class ipfs():
         print(out.decode("utf-8"))
     
     def cmd(self, arg):
-        cmd = ['ipfs', arg]
-        print("Running ipfs " + arg)
-        p = sub.Popen(cmd, stdout=sub.PIPE,
-                   stderr=sub.PIPE)
-        out, err = p.communicate()
-        print(err.decode("utf-8"))
-        print(out.decode("utf-8"))
+        !ipfs $arg > log.txt
+        time.sleep(1)
+        if arg not "init":
+            self.printfile("log.txt")
+        
+    def printfile(self, filename):
+        with open(filename, 'r') as myfile:
+            contents=myfile.read()
+        print(contents.decode("utf-8"))
+
 
 # Let's test to see if ipfs already exists in this notebook workspace
 isIPFSInstalled = os.path.isfile(ipfsHomeDir + "/ipfs")
@@ -124,3 +128,4 @@ else:
     print("")
     print("        ipfs = ipfs()")
     print("        ipfs.help()")
+
