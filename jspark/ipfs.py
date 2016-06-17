@@ -36,6 +36,14 @@ import os
 import subprocess as sub
 import signal
 import time
+import IPython.display
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
+
 
 # Print Working Directory
 prefix = os.getcwd()
