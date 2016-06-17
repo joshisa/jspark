@@ -1,3 +1,8 @@
+############################################################################
+#                                                                         ##
+# IMPORTANT:  RERUN THIS CELL AFTER executing the load command            ##
+#                                                                         ##
+############################################################################
 # Purpose:  Installation of IPFS (InterPlanetary File System) within Jupyter
 #           IPFS is a peer-to-peer distributed file system that seeks to 
 #           connect all computing devices with the same system of files.
@@ -108,8 +113,7 @@ class ipfs():
     def cmd(self, arg):
         !ipfs $arg > log.txt
         time.sleep(1)
-        if arg not "init":
-            self.printfile("log.txt")
+        self.printfile("log.txt")
         
     def printfile(self, filename):
         with open(filename, 'r') as myfile:
