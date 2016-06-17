@@ -6,6 +6,9 @@
 #                                                                         ##
 ############################################################################
 
+# Useful Reading
+#   -   https://ipfs.io/ipfs/QmNhFJjGcMPqpuYfxL62VVB9528NXqDNMFXiqN5bgFYiZ1/its-time-for-the-permanent-web.html
+#   -   https://netninja.com/2015/09/30/ipfs_interplanetary_file_system/
 
 # Purpose:  Installation of IPFS (InterPlanetary File System) within Jupyter
 #           IPFS is a peer-to-peer distributed file system that seeks to 
