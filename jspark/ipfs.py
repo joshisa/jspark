@@ -1,8 +1,12 @@
+
+
 ############################################################################
 #                                                                         ##
-# IMPORTANT:  RERUN THIS CELL AFTER executing the load command            ##
+# IMPORTANT:  RERUN THIS CELL AFTER executing the above load command      ##
 #                                                                         ##
 ############################################################################
+
+
 # Purpose:  Installation of IPFS (InterPlanetary File System) within Jupyter
 #           IPFS is a peer-to-peer distributed file system that seeks to 
 #           connect all computing devices with the same system of files.
