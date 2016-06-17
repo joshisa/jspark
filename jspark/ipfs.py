@@ -87,8 +87,13 @@ class ipfs():
         p = sub.Popen(cmd, stdout=sub.PIPE,
                    stderr=sub.PIPE)
         out, err = p.communicate()
-        print(err.decode("utf-8"))
-        print(out.decode("utf-8"))
+        try:
+            out = out.decode("utf-8")
+            err = err.decode("utf-8")
+        except:
+            pass
+        print(err)
+        print(out)
         
     def daemonStart(self):
         p = sub.Popen("nohup ipfs daemon > nohup.out 2>&1 &", shell=True)
@@ -111,8 +116,13 @@ class ipfs():
         p = sub.Popen(cmd, stdout=sub.PIPE,
                    stderr=sub.PIPE)
         out, err = p.communicate()
-        print(err.decode("utf-8"))
-        print(out.decode("utf-8"))
+        try:
+            out = out.decode("utf-8")
+            err = err.decode("utf-8")
+        except:
+            pass
+        print(err)
+        print(out)
     
     def cmd(self, arg):
         !ipfs $arg > log.txt
@@ -122,7 +132,11 @@ class ipfs():
     def printfile(self, filename):
         with open(filename, 'r') as myfile:
             contents=myfile.read()
-        print(contents.decode("utf-8"))
+            try:
+                contents = contents.decode("utf-8")
+            except:
+                pass
+        print(contents)
 
 
 # Let's test to see if ipfs already exists in this notebook workspace
