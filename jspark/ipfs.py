@@ -105,6 +105,7 @@ class ipfs():
             pass
         print(err)
         print(out)
+        self.daemonStart()
         
     def daemonStart(self):
         p = sub.Popen("nohup ipfs daemon > nohup.out 2>&1 &", shell=True)
@@ -137,6 +138,11 @@ class ipfs():
     
     def cmd(self, arg):
         !ipfs $arg > log.txt
+        time.sleep(1)
+        self.printfile("log.txt")
+    
+    def swarm(self, arg):
+        !ipfs swarm $arg > log.txt
         time.sleep(1)
         self.printfile("log.txt")
         
