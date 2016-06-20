@@ -27,6 +27,9 @@
 #   1. Easier sharing of data analysis result sets
 #   2. Easier access to popular open data sets via a permanent url
 #   3. Easier transfer of assets between notebook servers on different infra
+# Invoke Command: 
+#   %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
+#
 # Author:  Sanjay Joshi  joshisa (at) us(dot)ibm(dot)com
 # License: Apache 2.0
 # Organization:  IBM jStart (http://ibm.com/jstart)
