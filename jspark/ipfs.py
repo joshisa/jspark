@@ -1,3 +1,4 @@
+# %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
 
 
 ############################################################################
@@ -39,7 +40,8 @@ import os
 import subprocess as sub
 import signal
 import time
-import IPython.display
+from IPython.display import *
+
 try:
     # For Python 3.0 and later
     from urllib.request import urlopen
@@ -86,6 +88,7 @@ os.environ["PATH"] += os.pathsep + goHomeDir + "/bin"
 os.environ["PATH"] += os.pathsep + ipfsHomeDir
 os.environ["GOPATH"] = ipfsDir
 os.environ["IPFS_PATH"] = ipfsRepoDir
+os.environ["IPFS_LOGGING"] = "info" #info, warn, error, debug
 
 print("prefix = " + prefix)
 print("shareDir = " + shareDir)
@@ -109,6 +112,9 @@ class ipfs():
         print(err)
         print(out)
         self.daemonStart()
+        
+    def setLog(self, loglevel="info"):
+        os.environ["IPFS_LOGGING"] = loglevel
         
     def daemonStart(self):
         p = sub.Popen("nohup ipfs daemon > nohup.out 2>&1 &", shell=True)
@@ -149,6 +155,11 @@ class ipfs():
         time.sleep(1)
         self.printfile("log.txt")
         
+    def id(self):
+        !ipfs id > log.txt
+        time.sleep(1)
+        self.printfile("log.txt")
+        
     def printfile(self, filename):
         with open(filename, 'r') as myfile:
             contents=myfile.read()
@@ -186,4 +197,3 @@ else:
     print("")
     print("        ipfs = ipfs()")
     print("        ipfs.help()")
-
