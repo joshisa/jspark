@@ -1,4 +1,5 @@
 # %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
+# %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
 
 
 ############################################################################
@@ -88,7 +89,7 @@ os.environ["PATH"] += os.pathsep + goHomeDir + "/bin"
 os.environ["PATH"] += os.pathsep + ipfsHomeDir
 os.environ["GOPATH"] = ipfsDir
 os.environ["IPFS_PATH"] = ipfsRepoDir
-os.environ["IPFS_LOGGING"] = "info" #info, warn, error, debug
+os.environ["IPFS_LOGGING"] = "" #<empty>, info, error, debug
 
 print("prefix = " + prefix)
 print("shareDir = " + shareDir)
@@ -111,9 +112,10 @@ class ipfs():
             pass
         print(err)
         print(out)
+        self.cmd("init")
         self.daemonStart()
         
-    def setLog(self, loglevel="info"):
+    def setLog(self, loglevel=""):
         os.environ["IPFS_LOGGING"] = loglevel
         
     def daemonStart(self):
@@ -149,6 +151,15 @@ class ipfs():
         !ipfs $arg > log.txt
         time.sleep(1)
         self.printfile("log.txt")
+        
+    def cat(self, arg, filename=""):
+        if filename == "":
+            !ipfs cat $arg > log.txt
+            time.sleep(1)
+            self.printfile("log.txt")
+        else:
+            !ipfs cat $arg > $filename
+            print ("IPFS cat of ", arg, " written to ", filename)
     
     def swarm(self, arg):
         !ipfs swarm $arg > log.txt
@@ -197,3 +208,4 @@ else:
     print("")
     print("        ipfs = ipfs()")
     print("        ipfs.help()")
+
