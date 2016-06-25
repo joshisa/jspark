@@ -1,6 +1,4 @@
 # %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
-# %load https://raw.githubusercontent.com/joshisa/jspark/master/jspark/ipfs.py
-
 
 ############################################################################
 #                                                                         ##
@@ -208,4 +206,3 @@ else:
     print("")
     print("        ipfs = ipfs()")
     print("        ipfs.help()")
-
