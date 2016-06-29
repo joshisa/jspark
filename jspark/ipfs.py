@@ -99,6 +99,7 @@ print("IPFS Repo Dir = " + ipfsRepoDir)
 # Define an IPFS Helper Class
 class ipfs():
     def __init__(self):
+        isIPFSRepo = os.path.isfile(ipfsRepoDir + "/config")
         cmd = ['ipfs', 'version']
         p = sub.Popen(cmd, stdout=sub.PIPE,
                    stderr=sub.PIPE)
@@ -110,7 +111,8 @@ class ipfs():
             pass
         print(err)
         print(out)
-        self.cmd("init")
+        if isIPFSRepo is False:
+            self.cmd("init")
         self.daemonStart()
         
     def setLog(self, loglevel=""):
